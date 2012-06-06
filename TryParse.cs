@@ -1,4 +1,4 @@
-﻿#region New BSD License
+#region New BSD License
 //
 // TryParsers - TryParse the real way
 // Copyright (c) 2012, Atif Aziz. All rights reserved.

@@ -1,4 +1,4 @@
-﻿namespace TryParsers
+namespace TryParsers
 {
     using System;
 
