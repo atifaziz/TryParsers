@@ -34,5 +34,153 @@
 
 namespace TryParsers
 {
-    public partial class TryParse {}
+    using System;
+    using System.Globalization;
+
+    public static class TryParse
+    {
+        // Int16
+
+        public static short? Int16(string s)
+        {
+            short result;
+            return short.TryParse(s, out result) ? result : (short?)null;
+        }
+
+        public static short? Int16(string s, NumberStyles style, IFormatProvider provider)
+        {
+            short result;
+            return short.TryParse(s, style, provider, out result) ? result : (short?)null;
+        }
+
+        // Int32
+
+        public static int? Int32(string s)
+        {
+            int result;
+            return int.TryParse(s, out result) ? result : (int?)null;
+        }
+
+        public static int? Int32(string s, NumberStyles style, IFormatProvider provider)
+        {
+            int result;
+            return int.TryParse(s, style, provider, out result) ? result : (int?)null;
+        }
+
+        // Int64
+
+        public static long? Int64(string s)
+        {
+            long result;
+            return long.TryParse(s, out result) ? result : (long?)null;
+        }
+
+        public static long? Int64(string s, NumberStyles style, IFormatProvider provider)
+        {
+            long result;
+            return long.TryParse(s, style, provider, out result) ? result : (long?)null;
+        }
+
+        // Single
+
+        public static float? Single(string s)
+        {
+            float result;
+            return float.TryParse(s, out result) ? result : (float?)null;
+        }
+
+        public static float? Single(string s, NumberStyles style, IFormatProvider provider)
+        {
+            float result;
+            return float.TryParse(s, style, provider, out result) ? result : (float?)null;
+        }
+
+        // Double
+
+        public static double? Double(string s)
+        {
+            double result;
+            return double.TryParse(s, out result) ? result : (double?)null;
+        }
+
+        public static double? Double(string s, NumberStyles style, IFormatProvider provider)
+        {
+            double result;
+            return double.TryParse(s, style, provider, out result) ? result : (double?)null;
+        }
+
+        // Decimal
+
+        public static decimal? Decimal(string s)
+        {
+            decimal result;
+            return decimal.TryParse(s, out result) ? result : (decimal?)null;
+        }
+
+        public static decimal? Decimal(string s, NumberStyles style, IFormatProvider provider)
+        {
+            decimal result;
+            return decimal.TryParse(s, style, provider, out result) ? result : (decimal?)null;
+        }
+
+        // TimeSpan
+
+        public static TimeSpan? TimeSpan(string s)
+        {
+            TimeSpan result;
+            return System.TimeSpan.TryParse(s, out result) ? result : (TimeSpan?)null;
+        }
+
+        // DateTime
+
+        public static DateTime? DateTime(string s)
+        {
+            DateTime result;
+            return System.DateTime.TryParse(s, out result) ? result : (DateTime?)null;
+        }
+
+        public static DateTime? DateTime(string s, IFormatProvider provider, DateTimeStyles styles)
+        {
+            DateTime result;
+            return System.DateTime.TryParse(s, provider, styles, out result) ? result : (DateTime?)null;
+        }
+
+        public static DateTime? DateTimeExact(string s, string format, IFormatProvider provider, DateTimeStyles styles)
+        {
+            DateTime result;
+            return System.DateTime.TryParseExact(s, format, provider, styles, out result) ? result : (DateTime?)null;
+        }
+
+        public static DateTime? DateTimeExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles styles)
+        {
+            DateTime result;
+            return System.DateTime.TryParseExact(s, formats, provider, styles, out result) ? result : (DateTime?)null;
+        }
+
+        // DateTimeOffset
+
+        public static DateTimeOffset? DateTimeOffset(string input)
+        {
+            DateTimeOffset result;
+            return System.DateTimeOffset.TryParse(input, out result) ? result : (DateTimeOffset?)null;
+        }
+
+        public static DateTimeOffset? DateTimeOffset(string input, IFormatProvider formatProvider, DateTimeStyles styles)
+        {
+            DateTimeOffset result;
+            return System.DateTimeOffset.TryParse(input, formatProvider, styles, out result) ? result : (DateTimeOffset?)null;
+        }
+
+        public static DateTimeOffset? DateTimeOffsetExact(string input, string format, IFormatProvider formatProvider, DateTimeStyles styles)
+        {
+            DateTimeOffset result;
+            return System.DateTimeOffset.TryParseExact(input, format, formatProvider, styles, out result) ? result : (DateTimeOffset?)null;
+        }
+
+        public static DateTimeOffset? DateTimeOffsetExact(string input, string[] formats, IFormatProvider formatProvider, DateTimeStyles styles)
+        {
+            DateTimeOffset result;
+            return System.DateTimeOffset.TryParseExact(input, formats, formatProvider, styles, out result) ? result : (DateTimeOffset?)null;
+        }
+    }
 }
