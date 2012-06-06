@@ -1,6 +1,6 @@
 #region New BSD License
 //
-// TryParsers - TryParse the real way
+// TryParsers - TryParse from .NET Framework done right
 // Copyright (c) 2012, Atif Aziz. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without 
@@ -37,7 +37,7 @@ using CLSCompliantAttribute = System.CLSCompliantAttribute;
 using ComVisible = System.Runtime.InteropServices.ComVisibleAttribute;
 
 [assembly: AssemblyTitle("TryParsers")]
-[assembly: AssemblyDescription("TryParse done right")]
+[assembly: AssemblyDescription("TryParse from .NET Framework done right")]
 [assembly: AssemblyProduct("TryParsers")]
 [assembly: AssemblyCopyright("Copyright (c) 2012, Atif Aziz. All rights reserved.")]
 [assembly: AssemblyCulture("")]

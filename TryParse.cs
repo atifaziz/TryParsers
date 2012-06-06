@@ -1,6 +1,6 @@
 #region New BSD License
 //
-// TryParsers - TryParse the real way
+// TryParsers - TryParse from .NET Framework done right
 // Copyright (c) 2012, Atif Aziz. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without 
