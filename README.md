@@ -9,3 +9,12 @@ TryParsers is a tiny library, which can also be embedded as a single C# file, th
         select num.Value;
         
     Array.ForEach(nums.ToArray(), Console.WriteLine);
+
+TryParsers is available as two NuGet packages:
+
+ - [TryParsers][1]: library
+ - [TryParsers.Embedded][2]: single C# file for private embedding in a project
+
+
+  [1]: https://nuget.org/packages/TryParsers
+  [2]: https://nuget.org/packages/TryParsers.Embedded
