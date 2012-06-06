@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <version>1.0.0</version>
+        <authors>Atif Aziz</authors>
+        <owners>Atif Aziz</owners>
+        <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+        <projectUrl>https://bitbucket.org/raboof/tryparsers/</projectUrl>
+        <id>TryParsers</id>
+        <title>TryParsers</title>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <summary>TryParse from .NET Framework done right</summary>
+        <description>A single C# file that can be embedded and which provides alternate ways to invoke TryParse methods from .NET Framework that can be used in expressions and functional code like LINQ queries.</description>
+        <copyright>Copyright (c) 2012 Atif Aziz. All rights reserved.</copyright>
+        <tags>parser parsing linq functional</tags>
+    </metadata>
+    <files>
+        <file src="COPYING.txt" target="COPYING.txt" />
+        <file src="bin\Release\TryParsers.dll" target="lib\net20\TryParsers.dll" />
+    </files>
+</package>
