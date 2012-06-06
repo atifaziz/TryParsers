@@ -37,7 +37,11 @@ namespace TryParsers
     using System;
     using System.Globalization;
 
-    public static class TryParse
+    #if TRYPARSERS_LIB
+    public partial class TryParse {}
+    #endif
+
+    static partial class TryParse
     {
         // Int16
 
