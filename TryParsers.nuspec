@@ -10,7 +10,7 @@
         <title>TryParsers</title>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>TryParse from .NET Framework done right</summary>
-        <description>A single C# file that can be embedded and which provides alternate ways to invoke TryParse methods from .NET Framework that can be used in expressions and functional code like LINQ queries.</description>
+        <description>Provides alternate ways to invoke TryParse methods from .NET Framework that can be used in expressions and functional code like LINQ queries.</description>
         <copyright>Copyright (c) 2012 Atif Aziz. All rights reserved.</copyright>
         <tags>parser parsing linq functional</tags>
     </metadata>
