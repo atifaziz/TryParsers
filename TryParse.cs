@@ -186,5 +186,41 @@ namespace TryParsers
             DateTimeOffset result;
             return System.DateTimeOffset.TryParseExact(input, formats, formatProvider, styles, out result) ? result : (DateTimeOffset?)null;
         }
+
+        // Enum
+
+        public static TEnum Enum<TEnum>(string input) where TEnum : struct
+        {
+#if NET_4
+            TEnum result;
+            return System.Enum.TryParse(input, out result) ? result : default(TEnum);
+#else
+            try
+            {
+                return (TEnum) System.Enum.Parse(typeof (TEnum), input);
+            }
+            catch (Exception)
+            {
+                return default(TEnum);
+            }
+#endif
+        }
+
+        public static TEnum Enum<TEnum>(string input, bool ignoreCase) where TEnum : struct
+        {
+#if NET_4
+            TEnum result;
+            return System.Enum.TryParse(input, ignoreCase, out result) ? result : default(TEnum);
+#else
+            try
+            {
+                return (TEnum) System.Enum.Parse(typeof (TEnum), input, ignoreCase);
+            }
+            catch (Exception)
+            {
+                return default(TEnum);
+            }
+#endif
+        }
     }
 }
