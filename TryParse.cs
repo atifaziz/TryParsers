@@ -189,11 +189,11 @@ namespace TryParsers
 
         // Enum
 
-        public static TEnum Enum<TEnum>(string input) where TEnum : struct
+        public static TEnum? Enum<TEnum>(string input) where TEnum : struct
         {
 #if NET_4
             TEnum result;
-            return System.Enum.TryParse(input, out result) ? result : default(TEnum);
+            return System.Enum.TryParse(input, out result) ? result : default(TEnum?);
 #else
             try
             {
@@ -201,16 +201,16 @@ namespace TryParsers
             }
             catch (Exception)
             {
-                return default(TEnum);
+                return default(TEnum?);
             }
 #endif
         }
 
-        public static TEnum Enum<TEnum>(string input, bool ignoreCase) where TEnum : struct
+        public static TEnum? Enum<TEnum>(string input, bool ignoreCase) where TEnum : struct
         {
 #if NET_4
             TEnum result;
-            return System.Enum.TryParse(input, ignoreCase, out result) ? result : default(TEnum);
+            return System.Enum.TryParse(input, ignoreCase, out result) ? result : default(TEnum?);
 #else
             try
             {
@@ -218,7 +218,7 @@ namespace TryParsers
             }
             catch (Exception)
             {
-                return default(TEnum);
+                return default(TEnum?);
             }
 #endif
         }
