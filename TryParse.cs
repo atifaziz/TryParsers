@@ -51,6 +51,35 @@ namespace TryParsers
             return bool.TryParse(value, out result) ? result : default(bool?);
         }
 
+        // SByte
+
+        public static sbyte? SByte(string s)
+        {
+            sbyte result;
+            return sbyte.TryParse(s, out result) ? result : (sbyte?)null;
+        }
+
+        public static sbyte? SByte(string s, NumberStyles style, IFormatProvider provider)
+        {
+            sbyte result;
+            return sbyte.TryParse(s, style, provider, out result) ? result : (sbyte?)null;
+        }
+
+        // Byte
+
+        public static byte? Byte(string input)
+        {
+            byte result;
+            return byte.TryParse(input, out result) ? result : default(byte?);
+        }
+
+        public static byte? Byte(string input, NumberStyles style, IFormatProvider provider)
+        {
+            byte result;
+            return byte.TryParse(input, style, provider, out result) ? result : default(byte?);
+        }
+
+
         // Int16
 
         public static short? Int16(string s)
