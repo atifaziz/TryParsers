@@ -43,6 +43,14 @@ namespace TryParsers
 
     static partial class TryParse
     {
+        // Boolean
+
+        public static bool? Boolean(string value)
+        {
+            bool result;
+            return bool.TryParse(value, out result) ? result : default(bool?);
+        }
+
         // Int16
 
         public static short? Int16(string s)
