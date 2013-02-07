@@ -65,6 +65,21 @@ namespace TryParsers
             return short.TryParse(s, style, provider, out result) ? result : (short?)null;
         }
 
+        // UInt16
+
+        public static ushort? UInt16(string input)
+        {
+            ushort result;
+            return ushort.TryParse(input, out result) ? result : default(ushort?);
+        }
+
+        public static ushort? UInt16(string input, NumberStyles style, IFormatProvider provider)
+        {
+            ushort result;
+            return ushort.TryParse(input, style, provider, out result) ? result : default(ushort?);
+        }
+
+
         // Int32
 
         public static int? Int32(string s)
@@ -79,6 +94,20 @@ namespace TryParsers
             return int.TryParse(s, style, provider, out result) ? result : (int?)null;
         }
 
+        // UInt32
+
+        public static uint? UInt32(string input)
+        {
+            uint result;
+            return uint.TryParse(input, out result) ? result : default(uint?);
+        }
+
+        public static uint? UInt32(string input, NumberStyles style, IFormatProvider provider)
+        {
+            uint result;
+            return uint.TryParse(input, style, provider, out result) ? result : default(uint?);
+        }
+
         // Int64
 
         public static long? Int64(string s)
@@ -91,6 +120,20 @@ namespace TryParsers
         {
             long result;
             return long.TryParse(s, style, provider, out result) ? result : (long?)null;
+        }
+
+        // UInt64
+
+        public static ulong? UInt64(string input)
+        {
+            ulong result;
+            return ulong.TryParse(input, out result) ? result : default(ulong?);
+        }
+
+        public static ulong? UInt64(string input, NumberStyles style, IFormatProvider provider)
+        {
+            ulong result;
+            return ulong.TryParse(input, style, provider, out result) ? result : default(ulong?);
         }
 
         // Single
