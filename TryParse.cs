@@ -35,6 +35,8 @@
 namespace TryParsers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Globalization;
 
     #if TRYPARSERS_LIB
@@ -276,38 +278,99 @@ namespace TryParsers
 
         // Enum
 
-        public static TEnum? Enum<TEnum>(string input) where TEnum : struct
+        public static T? Enum<T>(string value) where T : struct
         {
-#if NET_4
-            TEnum result;
-            return System.Enum.TryParse(input, out result) ? result : default(TEnum?);
-#else
-            try
-            {
-                return (TEnum) System.Enum.Parse(typeof (TEnum), input);
-            }
-            catch (Exception)
-            {
-                return default(TEnum?);
-            }
-#endif
+            return Enum<T>(value, false);
         }
 
-        public static TEnum? Enum<TEnum>(string input, bool ignoreCase) where TEnum : struct
+        public static T? Enum<T>(string value, bool ignoreCase) where T : struct
         {
-#if NET_4
-            TEnum result;
-            return System.Enum.TryParse(input, ignoreCase, out result) ? result : default(TEnum?);
-#else
-            try
+            return EnumImpl<T>.TryParse(value, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
+        }
+
+        static class StringSeparatorStock
+        {
+            public static readonly char[] Comma = new[] { ',' };
+        }
+
+        static class EnumImpl<T> where T : struct
+        {                                                        // ReSharper disable StaticFieldInGenericType
+            static KeyValuePair<string, ulong>[] _cachedMembers; // ReSharper restore StaticFieldInGenericType
+                                                                 // ReSharper disable ReturnTypeCanBeEnumerable.Local
+            static KeyValuePair<string, ulong>[] Members         // ReSharper restore ReturnTypeCanBeEnumerable.Local
             {
-                return (TEnum) System.Enum.Parse(typeof (TEnum), input, ignoreCase);
+                get { return _cachedMembers ?? (_cachedMembers = QueryMembers()); }
             }
-            catch (Exception)
+
+            static KeyValuePair<string, ulong>[] QueryMembers()
             {
-                return default(TEnum?);
+                var names = System.Enum.GetNames(typeof(T));
+                var values = System.Enum.GetValues(typeof(T));
+                var members = new KeyValuePair<string, ulong>[names.Length];
+                for (var i = 0; i < members.Length; i++)
+                    members[i] = new KeyValuePair<string, ulong>(names[i], ((IConvertible)values.GetValue(i)).ToUInt64(null));
+                return members;
             }
-#endif
+
+            public static T? TryParse(string value, StringComparison comparison)
+            {
+                if (!typeof(T).IsEnum)
+                    throw new Exception(String.Format("{0} is not an enumeration type.", typeof(T).FullName));
+
+                var type = typeof(T);
+                if (value == null)
+                    return null;
+
+                value = value.Trim();
+                if (value.Length == 0)
+                    return null;
+
+                var ch = value[0];
+                if ((ch >= '0' && ch <= '9') || ch == '-' || ch == '+')
+                {
+                    var underlyingType = System.Enum.GetUnderlyingType(type);
+                    try
+                    {
+                        var obj = Convert.ChangeType(value, underlyingType, CultureInfo.InvariantCulture);
+                        Debug.Assert(obj != null);
+                        return (T)System.Enum.ToObject(type, obj);
+                    }
+                    catch (FormatException) { /* ignore */ }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
+                }
+
+                var result = 0UL;
+                var tokens = value.Split(StringSeparatorStock.Comma);
+
+                foreach (var t in tokens)
+                {
+                    var token = t.Trim();
+                    var match = default(KeyValuePair<string, ulong>);
+                    foreach (var member in Members)
+                    {
+                        if (member.Key.Equals(token, comparison))
+                        {
+                            match = member;
+                            break;
+                        }
+                    }
+                    if (match.Key == null)
+                        return null;
+                    result |= match.Value;
+                }
+
+                try
+                {
+                    return (T)System.Enum.ToObject(type, result);
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
         }
     }
 }
