@@ -53,12 +53,14 @@ namespace TryParsers
 
         // SByte
 
+        [CLSCompliant(false)]
         public static sbyte? SByte(string s)
         {
             sbyte result;
             return sbyte.TryParse(s, out result) ? result : (sbyte?)null;
         }
 
+        [CLSCompliant(false)]
         public static sbyte? SByte(string s, NumberStyles style, IFormatProvider provider)
         {
             sbyte result;
@@ -79,7 +81,6 @@ namespace TryParsers
             return byte.TryParse(input, style, provider, out result) ? result : default(byte?);
         }
 
-
         // Int16
 
         public static short? Int16(string s)
@@ -96,12 +97,14 @@ namespace TryParsers
 
         // UInt16
 
+        [CLSCompliant(false)]
         public static ushort? UInt16(string input)
         {
             ushort result;
             return ushort.TryParse(input, out result) ? result : default(ushort?);
         }
 
+        [CLSCompliant(false)]
         public static ushort? UInt16(string input, NumberStyles style, IFormatProvider provider)
         {
             ushort result;
@@ -125,12 +128,14 @@ namespace TryParsers
 
         // UInt32
 
+        [CLSCompliant(false)]
         public static uint? UInt32(string input)
         {
             uint result;
             return uint.TryParse(input, out result) ? result : default(uint?);
         }
 
+        [CLSCompliant(false)]
         public static uint? UInt32(string input, NumberStyles style, IFormatProvider provider)
         {
             uint result;
@@ -153,12 +158,14 @@ namespace TryParsers
 
         // UInt64
 
+        [CLSCompliant(false)]
         public static ulong? UInt64(string input)
         {
             ulong result;
             return ulong.TryParse(input, out result) ? result : default(ulong?);
         }
 
+        [CLSCompliant(false)]
         public static ulong? UInt64(string input, NumberStyles style, IFormatProvider provider)
         {
             ulong result;
