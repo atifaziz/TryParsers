@@ -5,9 +5,9 @@ for %%i in (NuGet.exe) do set nuget=%%~dpnx$PATH:i
 if "%nuget%"=="" goto :nonuget
 pushd "%~dp0"
 if not exist dist md dist
-if not %errorlevel%==0 exit /b %errorlevel%
-call :packlib && call :packcs
-goto :EOF
+if %errorlevel%==0 call :packlib && call :packcs
+popd
+exit /b %errorlevel%
 
 :packlib
 call build /v:m && call :pack TryParsers
