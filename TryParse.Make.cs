@@ -38,20 +38,46 @@ namespace TryParsers
 
     static partial class TryParse
     {
+        /// <summary>
+        /// Creates and returns a function that returns the default value of
+        /// <typeparamref name="T"/> whenever the supplied parser function
+        /// throws an exception and the parsed value otherwise.
+        /// </summary>
+
         public static Func<string, T> Make<T>(Func<string, T> parser)
         {
             return Make(parser, default(T));
         }
+
+        /// <summary>
+        /// Creates and returns a function that returns a user-defined
+        /// default value whenever the supplied parser function throws an 
+        /// exception and the parsed value otherwise.
+        /// </summary>
 
         public static Func<string, T> Make<T>(Func<string, T> parser, T defaultValue)
         {
             return Make(parser, _ => defaultValue);
         }
 
+        /// <summary>
+        /// Creates and returns a function that returns the result of a
+        /// parser function and the result of a second function if the
+        /// parser function throws an exception.
+        /// </summary>
+
         public static Func<string, T> Make<T>(Func<string, T> parser, Func<Exception, T> onError)
         {
             return Make<T, Exception>(parser, onError);
         }
+
+        /// <summary>
+        /// Creates and returns a function that returns the result of a
+        /// parser function and the result of a second function if the
+        /// parser function throws an exception of type 
+        /// <typeparamref name="TException"/>. Exceptions of any other type
+        /// are propagated.
+        /// </summary>
 
         public static Func<string, T> Make<T, TException>(
             Func<string, T> parser, 
@@ -70,6 +96,15 @@ namespace TryParsers
                 }
             };
         }
+
+        /// <summary>
+        /// Creates and returns a function that returns the result of a
+        /// parser function and the result of a second or third function if 
+        /// the parser function throws an exception of type 
+        /// <typeparamref name="TException1"/> or 
+        /// <typeparamref name="TException2"/>, respectively. 
+        /// Exceptions of any other type are propagated.
+        /// </summary>
 
         public static Func<string, T> Make<T, TException1, TException2>(
             Func<string, T> parser, 
@@ -94,6 +129,16 @@ namespace TryParsers
                 }
             };
         }
+
+        /// <summary>
+        /// Creates and returns a function that returns the result of a
+        /// parser function and the result of a second, third or fourth 
+        /// function if  the parser function throws an exception of type 
+        /// <typeparamref name="TException1"/> or 
+        /// <typeparamref name="TException2"/> or 
+        /// <typeparamref name="TException3"/>, respectively. 
+        /// Exceptions of any other type are propagated.
+        /// </summary>
 
         public static Func<string, T> Make<T, TException1, TException2, TException3>(
             Func<string, T> parser, 
