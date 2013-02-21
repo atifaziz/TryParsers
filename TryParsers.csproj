@@ -10,32 +10,54 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TryParsers</RootNamespace>
     <AssemblyName>TryParsers</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NETFX 2.0 Debug|AnyCPU' ">
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\net-2.0\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;TRYPARSERS_LIB</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NETFX 2.0 Release|AnyCPU' ">
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\net-2.0\Release\</OutputPath>
     <DefineConstants>TRACE;TRYPARSERS_LIB</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NETFX 3.5 Debug|AnyCPU'">
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <OutputPath>bin\net-3.5\Debug\</OutputPath>
+    <DefineConstants>TRACE;TRYPARSERS_LIB</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NETFX 3.5 Release|AnyCPU'">
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <OutputPath>bin\net-3.5\Release\</OutputPath>
+    <DefineConstants>TRACE;TRYPARSERS_LIB</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="TryParse.Make.cs" Condition="$(TargetFrameworkVersion) != 'v2.0'" />
     <Compile Include="TryParse.cs" />
   </ItemGroup>
   <ItemGroup>

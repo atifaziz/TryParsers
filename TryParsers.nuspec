@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <authors>Atif Aziz</authors>
         <owners>Atif Aziz</owners>
         <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
@@ -13,10 +13,11 @@
         <description>Provides alternate ways to invoke TryParse methods from .NET Framework for use in expressions and functional code like LINQ queries</description>
         <copyright>Copyright (c) 2012 Atif Aziz. All rights reserved.</copyright>
         <tags>parser parsing linq functional</tags>
-        <releaseNotes>Adds support for SByte, UInt16, UInt32, UInt64 and enumerations</releaseNotes>
+        <releaseNotes>Adds general-purpose TryParse function maker</releaseNotes>
     </metadata>
     <files>
         <file src="COPYING.txt" target="COPYING.txt" />
-        <file src="bin\Release\TryParsers.dll" target="lib\net20\TryParsers.dll" />
+        <file src="bin\net-2.0\Release\TryParsers.dll" target="lib\net20\TryParsers.dll" />
+        <file src="bin\net-3.5\Release\TryParsers.dll" target="lib\net35\TryParsers.dll" />
     </files>
 </package>

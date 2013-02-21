@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryParsers", "TryParsers.csproj", "{717BEF71-FD4C-4EA7-B113-52763DBA4E38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CB9A3CD5-0A61-44A9-A069-BE0FEFB6AC1F}"
@@ -17,14 +17,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		NETFX 2.0 Debug|Any CPU = NETFX 2.0 Debug|Any CPU
+		NETFX 2.0 Release|Any CPU = NETFX 2.0 Release|Any CPU
+		NETFX 3.5 Debug|Any CPU = NETFX 3.5 Debug|Any CPU
+		NETFX 3.5 Release|Any CPU = NETFX 3.5 Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 2.0 Debug|Any CPU.ActiveCfg = NETFX 2.0 Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 2.0 Debug|Any CPU.Build.0 = NETFX 2.0 Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 2.0 Release|Any CPU.ActiveCfg = NETFX 2.0 Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 2.0 Release|Any CPU.Build.0 = NETFX 2.0 Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 3.5 Debug|Any CPU.ActiveCfg = NETFX 3.5 Debug|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 3.5 Debug|Any CPU.Build.0 = NETFX 3.5 Debug|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 3.5 Release|Any CPU.ActiveCfg = NETFX 3.5 Release|Any CPU
+		{717BEF71-FD4C-4EA7-B113-52763DBA4E38}.NETFX 3.5 Release|Any CPU.Build.0 = NETFX 3.5 Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
