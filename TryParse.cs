@@ -115,7 +115,6 @@ namespace TryParsers
             return ushort.TryParse(input, style, provider, out result) ? result : (ushort?)null;
         }
 
-
         // Int32
 
         public static int? Int32(string s)
@@ -373,6 +372,26 @@ namespace TryParsers
                     return null;
                 }
             }
+        }
+
+        // Uri
+
+        public static Uri Uri(string uriString, UriKind uriKind)
+        {
+            Uri result;
+            return System.Uri.TryCreate(uriString, uriKind, out result) ? result : null;
+        }
+
+        public static Uri Uri(Uri baseUri, string relativeUri)
+        {
+            Uri result;
+            return System.Uri.TryCreate(baseUri, relativeUri, out result) ? result : null;
+        }
+
+        public static Uri Uri(Uri baseUri, Uri relativeUri)
+        {
+            Uri result;
+            return System.Uri.TryCreate(baseUri, relativeUri, out result) ? result : null;
         }
     }
 }
