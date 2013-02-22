@@ -73,16 +73,16 @@ namespace TryParsers
 
         // Byte
 
-        public static byte? Byte(string input)
+        public static byte? Byte(string s)
         {
             byte result;
-            return byte.TryParse(input, out result) ? result : (byte?)null;
+            return byte.TryParse(s, out result) ? result : (byte?)null;
         }
 
-        public static byte? Byte(string input, NumberStyles style, IFormatProvider provider)
+        public static byte? Byte(string s, NumberStyles style, IFormatProvider provider)
         {
             byte result;
-            return byte.TryParse(input, style, provider, out result) ? result : (byte?)null;
+            return byte.TryParse(s, style, provider, out result) ? result : (byte?)null;
         }
 
         // Int16
@@ -102,17 +102,17 @@ namespace TryParsers
         // UInt16
 
         [CLSCompliant(false)]
-        public static ushort? UInt16(string input)
+        public static ushort? UInt16(string s)
         {
             ushort result;
-            return ushort.TryParse(input, out result) ? result : (ushort?)null;
+            return ushort.TryParse(s, out result) ? result : (ushort?)null;
         }
 
         [CLSCompliant(false)]
-        public static ushort? UInt16(string input, NumberStyles style, IFormatProvider provider)
+        public static ushort? UInt16(string s, NumberStyles style, IFormatProvider provider)
         {
             ushort result;
-            return ushort.TryParse(input, style, provider, out result) ? result : (ushort?)null;
+            return ushort.TryParse(s, style, provider, out result) ? result : (ushort?)null;
         }
 
         // Int32
@@ -132,17 +132,17 @@ namespace TryParsers
         // UInt32
 
         [CLSCompliant(false)]
-        public static uint? UInt32(string input)
+        public static uint? UInt32(string s)
         {
             uint result;
-            return uint.TryParse(input, out result) ? result : (uint?)null;
+            return uint.TryParse(s, out result) ? result : (uint?)null;
         }
 
         [CLSCompliant(false)]
-        public static uint? UInt32(string input, NumberStyles style, IFormatProvider provider)
+        public static uint? UInt32(string s, NumberStyles style, IFormatProvider provider)
         {
             uint result;
-            return uint.TryParse(input, style, provider, out result) ? result : (uint?)null;
+            return uint.TryParse(s, style, provider, out result) ? result : (uint?)null;
         }
 
         // Int64
@@ -162,17 +162,17 @@ namespace TryParsers
         // UInt64
 
         [CLSCompliant(false)]
-        public static ulong? UInt64(string input)
+        public static ulong? UInt64(string s)
         {
             ulong result;
-            return ulong.TryParse(input, out result) ? result : (ulong?)null;
+            return ulong.TryParse(s, out result) ? result : (ulong?)null;
         }
 
         [CLSCompliant(false)]
-        public static ulong? UInt64(string input, NumberStyles style, IFormatProvider provider)
+        public static ulong? UInt64(string s, NumberStyles style, IFormatProvider provider)
         {
             ulong result;
-            return ulong.TryParse(input, style, provider, out result) ? result : (ulong?)null;
+            return ulong.TryParse(s, style, provider, out result) ? result : (ulong?)null;
         }
 
         // Single
