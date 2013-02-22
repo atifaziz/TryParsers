@@ -13,7 +13,7 @@
         <description>A single C# file that can be embedded to provide alternate ways to invoke TryParse methods from .NET Framework for use in expressions and functional code like LINQ queries.</description>
         <copyright>Copyright (c) 2012 Atif Aziz. All rights reserved.</copyright>
         <tags>parser parsing linq functional</tags>
-        <releaseNotes>Adds general-purpose TryParse function maker</releaseNotes>
+        <releaseNotes>Adds support for Uri and general-purpose TryParse function maker</releaseNotes>
     </metadata>
     <files>
         <file src="COPYING.txt" target="COPYING.txt" />
