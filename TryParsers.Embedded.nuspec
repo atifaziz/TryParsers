@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <version>1.2.0</version>
+        <version>1.2.1-beta1</version>
         <authors>Atif Aziz</authors>
         <owners>Atif Aziz</owners>
         <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
@@ -17,8 +17,8 @@
     </metadata>
     <files>
         <file src="COPYING.txt" target="COPYING.txt" />
-        <file src="TryParse.cs" target="content\net20\TryParse.cs" />
-        <file src="TryParse.cs" target="content\net35\TryParse.cs" />
-        <file src="TryParse.Make.cs" target="content\net35\TryParse.Make.cs" />
+        <file src="TryParse.cs" target="content\net20\App_Packages\TryParsers\TryParse.cs" />
+        <file src="TryParse.cs" target="content\net35\App_Packages\TryParsers\TryParse.cs" />
+        <file src="TryParse.Make.cs" target="content\net35\App_Packages\TryParsers\TryParse.Make.cs" />
     </files>
 </package>
