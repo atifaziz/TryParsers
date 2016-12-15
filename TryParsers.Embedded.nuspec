@@ -5,7 +5,7 @@
         <authors>Atif Aziz</authors>
         <owners>Atif Aziz</owners>
         <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
-        <projectUrl>http://bitbucket.org/raboof/tryparsers/</projectUrl>
+        <projectUrl>https://github.com/atifaziz/TryParsers</projectUrl>
         <id>TryParsers.Embedded</id>
         <title>TryParsers (Embedded)</title>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
