@@ -38,6 +38,7 @@ namespace TryParsers
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Globalization;
+    using System.Reflection;
 
     #if TRYPARSERS_LIB
     public partial class TryParse {}
@@ -315,7 +316,7 @@ namespace TryParsers
 
             public static T? TryParse(string value, StringComparison comparison)
             {
-                if (!typeof(T).IsEnum)
+                if (!typeof(T).GetTypeInfo().IsEnum)
                     throw new Exception(String.Format("{0} is not an enumeration type.", typeof(T).FullName));
 
                 var type = typeof(T);

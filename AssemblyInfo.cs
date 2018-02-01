@@ -32,24 +32,5 @@
 //
 #endregion
 
-using System.Reflection;
-using CLSCompliantAttribute = System.CLSCompliantAttribute;
-using ComVisible = System.Runtime.InteropServices.ComVisibleAttribute;
-
-[assembly: AssemblyTitle("TryParsers")]
-[assembly: AssemblyDescription("TryParse from .NET Framework done right")]
-[assembly: AssemblyProduct("TryParsers")]
-[assembly: AssemblyCopyright("Copyright (c) 2012, Atif Aziz. All rights reserved.")]
-[assembly: AssemblyCulture("")]
-
-[assembly: AssemblyVersion("1.2.0.0")]
-[assembly: AssemblyFileVersion("1.2.15722.1508")]
-
-#if DEBUG
-[assembly: AssemblyConfiguration("DEBUG")]
-#else
-[assembly: AssemblyConfiguration("RELEASE")]
-#endif
-
-[assembly: CLSCompliant(true)] 
-[assembly: ComVisible(false)]
+[assembly: System.CLSCompliant(true)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]

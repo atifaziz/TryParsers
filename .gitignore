@@ -13,3 +13,4 @@ dist/
 pkg/*/
 *.nupkg
 desktop.ini
+.vs/

@@ -1,7 +1,7 @@
 TryParsers is available as two NuGet packages:
 
  - [TryParsers][1]: library
- - [TryParsers.Embedded][2]: C# source for private embedding in a project
+ - ~~[TryParsers.Embedded][2]: C# source for private embedding in a project~~ (deprecated)
 
 The .NET Framework has a number of static `TryParse` methods on types like [`Int32`][3], [`Int64`][4], [`Double`][5], [`DateTime`][6] and so on, that make their use in expressions and functional code like LINQ queries impossible. That's because they return their result in two parts: one in the return value (a Boolean indicating whether the parse was successful) and another in an output parameter (the parsed value).
 
@@ -64,7 +64,7 @@ Note that `Make` above will still throw if an exception other than `FormatExcept
 Download and install TryParsers from NuGet:
 
  - [TryParsers][1]: library
- - [TryParsers.Embedded][2]: C# source for private embedding in a project
+ - ~~[TryParsers.Embedded][2]: C# source for private embedding in a project~~ (deprecated)
 
 
   [1]: https://nuget.org/packages/TryParsers
