@@ -44,10 +44,8 @@ namespace TryParsers
         /// throws an exception and the parsed value otherwise.
         /// </summary>
 
-        public static Func<string, T> Make<T>(Func<string, T> parser)
-        {
-            return Make(parser, default(T));
-        }
+        public static Func<string, T> Make<T>(Func<string, T> parser) =>
+            Make(parser, default(T));
 
         /// <summary>
         /// Creates and returns a function that returns a user-defined
@@ -55,10 +53,8 @@ namespace TryParsers
         /// exception and the parsed value otherwise.
         /// </summary>
 
-        public static Func<string, T> Make<T>(Func<string, T> parser, T defaultValue)
-        {
-            return Make(parser, _ => defaultValue);
-        }
+        public static Func<string, T> Make<T>(Func<string, T> parser, T defaultValue) =>
+            Make(parser, _ => defaultValue);
 
         /// <summary>
         /// Creates and returns a function that returns the result of a
@@ -66,10 +62,8 @@ namespace TryParsers
         /// parser function throws an exception.
         /// </summary>
 
-        public static Func<string, T> Make<T>(Func<string, T> parser, Func<Exception, T> onError)
-        {
-            return Make<T, Exception>(parser, onError);
-        }
+        public static Func<string, T> Make<T>(Func<string, T> parser, Func<Exception, T> onError) =>
+            Make<T, Exception>(parser, onError);
 
         /// <summary>
         /// Creates and returns a function that returns the result of a
