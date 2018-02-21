@@ -9,57 +9,63 @@ TryParsers is a tiny library, which can also be embedded as one or two C# files,
 
 You can now write error-tolerant code using LINQ like this:
 
-    var nums = 
-        from input in new[] { "O", "l", "2", "3", "4", "S", "6", "7", "B", "9" }
-        select TryParse.Int32(input) into num
-        where num != null
-        select num.Value;
-        
-    Console.WriteLine(string.Join(",", nums);
-    
-    // Output: 2,3,4,6,7,9
+```c#
+var nums =
+    from input in new[] { "O", "l", "2", "3", "4", "S", "6", "7", "B", "9" }
+    select TryParse.Int32(input) into num
+    where num != null
+    select num.Value;
+
+Console.WriteLine(string.Join(",", nums);
+
+// Output: 2,3,4,6,7,9
+```
 
 The .NET Framework still has many types that support parsing or initializing from a string representation of a value but which throw exceptions on failure. TryParsers also comes with a generic method called `Make` for such cases that enables building a `TryParse`-like method on top of existing parsers. For example, the [`MailAddress`][8] [constructor][9] throws [`FormatException`][10] when it fails to parse or recognize a valid e-mail address. Using `Make`, however, you can create a `TryParse`-like method on top of `MailAddress`:
 
-    var addresses =
-        from parser in new[] {
-            TryParse.Make(s => new MailAddress(s), (FormatException e) => null)
-        }
-        from s in new[] {
-            "john.doe@example.com",
-            "john-dot-doe-at-example-dot-com",
-            "john.doe@localhost",
-        }
-        select parser(s) into address
-        where address != null
-        select address;
+```c#
+var addresses =
+    from parser in new[] {
+        TryParse.Make(s => new MailAddress(s), (FormatException e) => null)
+    }
+    from s in new[] {
+        "john.doe@example.com",
+        "john-dot-doe-at-example-dot-com",
+        "john.doe@localhost",
+    }
+    select parser(s) into address
+    where address != null
+    select address;
 
-    Console.WriteLine(string.Join("; ", addresses));
+Console.WriteLine(string.Join("; ", addresses));
 
-    // Output:
-    // john.doe@example.com; john.doe@localhost
+// Output:
+// john.doe@example.com; john.doe@localhost
+```
 
 Note that `Make` above will still throw if an exception other than `FormatException` is thrown by the `MailAddress` constructor. Below is a more advanced of example using `Make` to distinguish between `FormatException` and `OverflowException` (throwing in all other cases):
 
-    var results =
-        from parser in new[] {
-            TryParse.Make(s => (object) sbyte.Parse(s, NumberStyles.None), 
-                          (FormatException e)   => e, 
-                          (OverflowException e) => e)
-        }
-        from s in new[] {  "l",  "2",   "4",  "B",    "16", 
-                          "32", "64", "128", "256", "-512"  }
-        select parser(s) into e
-        select e is OverflowException
-             ? "#OVERFLOW"
-             : e is FormatException 
-             ? "#ERROR"
-             : e;
+```c#
+var results =
+    from parser in new[] {
+        TryParse.Make(s => (object) sbyte.Parse(s, NumberStyles.None),
+                        (FormatException e)   => e,
+                        (OverflowException e) => e)
+    }
+    from s in new[] {  "l",  "2",   "4",  "B",    "16",
+                      "32", "64", "128", "256", "-512"  }
+    select parser(s) into e
+    select e is OverflowException
+         ? "#OVERFLOW"
+         : e is FormatException
+         ? "#ERROR"
+         : e;
 
-    Console.WriteLine(string.Join(",", results));
+Console.WriteLine(string.Join(",", results));
 
-    // Output:
-    // #ERROR,2,4,#ERROR,16,32,64,#OVERFLOW,#OVERFLOW,#ERROR
+// Output:
+// #ERROR,2,4,#ERROR,16,32,64,#OVERFLOW,#OVERFLOW,#ERROR
+```
 
 Download and install TryParsers from NuGet:
 
