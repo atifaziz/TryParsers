@@ -6,7 +6,7 @@
     <DefineConstants>TRYPARSERS_LIB</DefineConstants>
     <VersionPrefix>1.3.0</VersionPrefix>
     <Copyright>Copyright (c) 2012 Atif Aziz. All rights reserved.</Copyright>
-    <Description>TryParse from .NET Framework done right</Description>
+    <Description>TryParse from .NET Standard done right</Description>
     <Authors>Atif Aziz</Authors>
     <Owners>Atif Aziz</Owners>
     <Company></Company>

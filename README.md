@@ -10,7 +10,7 @@ It is available as two NuGet packages:
  - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in
    a project~~ (deprecated)
 
-The .NET Framework has a number of static `TryParse` methods on types like
+The .NET Standard has a number of static `TryParse` methods on types like
 [`Int32`][int], [`Int64`][long], [`Double`][double], [`DateTime`][dt] and so
 on, that make their use in expressions and functional code like LINQ queries
 impossible. That's because they return their result in two parts: one in the
@@ -38,7 +38,7 @@ Console.WriteLine(string.Join(",", nums);
 // Output: 2,3,4,6,7,9
 ```
 
-The .NET Framework still has many types that support parsing or initializing
+The .NET Standard still has many types that support parsing or initializing
 from a string representation of a value but which throw exceptions on failure.
 TryParsers also comes with a generic method called `Make` for such cases that
 enables building a `TryParse`-like method on top of existing parsers. For
