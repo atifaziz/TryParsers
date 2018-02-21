@@ -12,10 +12,10 @@ It is available as two NuGet packages:
 
 The .NET Standard has a number of static `TryParse` methods on types like
 [`Int32`][int], [`Int64`][long], [`Double`][double], [`DateTime`][dt] and so
-on, that make their use in expressions and functional code like LINQ queries
-impossible. That's because they return their result in two parts: one in the
-return value (a Boolean indicating whether the parse was successful) and
-another in an output parameter (the parsed value).
+on, that make their use in LINQ query expressions impossible. That's because
+they return their result in two parts: one in the return value (a Boolean
+indicating whether the parse was successful) and another in an output
+parameter (the parsed value).
 
 TryParsers is a tiny library, which can also be embedded as one or two C#
 files, that turns `TryParse` methods into functions that return their result
@@ -37,6 +37,10 @@ Console.WriteLine(string.Join(",", nums);
 
 // Output: 2,3,4,6,7,9
 ```
+
+Note that while [`out` variables][out-vars] that were introduced in C# 7 help
+to use standard `TryParse` methods in most expressions, they are forbidden in
+LINQ query expressions (at least at the time of the release of this library).
 
 The .NET Standard still has many types that support parsing or initializing
 from a string representation of a value but which throw exceptions on failure.
@@ -111,3 +115,4 @@ Download and install TryParsers from NuGet:
 [MailAddress.ctor]: http://msdn.microsoft.com/en-us/library/591bk9e8.aspx
 [FormatException]: http://msdn.microsoft.com/en-us/library/system.formatexception.aspx
 [dotnet-try-parse]: https://source.dot.net/#q=TryParse
+[out-vars]: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7#out-variables
