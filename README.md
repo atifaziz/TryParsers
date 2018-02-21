@@ -1,11 +1,22 @@
 TryParsers is available as two NuGet packages:
 
  - [TryParsers][pkg]: library
- - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in a project~~ (deprecated)
+ - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in
+   a project~~ (deprecated)
 
-The .NET Framework has a number of static `TryParse` methods on types like [`Int32`][int], [`Int64`][long], [`Double`][double], [`DateTime`][dt] and so on, that make their use in expressions and functional code like LINQ queries impossible. That's because they return their result in two parts: one in the return value (a Boolean indicating whether the parse was successful) and another in an output parameter (the parsed value).
+The .NET Framework has a number of static `TryParse` methods on types like
+[`Int32`][int], [`Int64`][long], [`Double`][double], [`DateTime`][dt] and so
+on, that make their use in expressions and functional code like LINQ queries
+impossible. That's because they return their result in two parts: one in the
+return value (a Boolean indicating whether the parse was successful) and
+another in an output parameter (the parsed value).
 
-TryParsers is a tiny library, which can also be embedded as one or two C# files, that turns `TryParse` methods into functions that return their result entirely in the return value. For example, for an `Int32`, TryParsers's version returns a [nullable][nullable] `Int32` or simply `int?` in C#. If the parsing succeeds, the return value will be the parsed `Int32` value otherwise it will be `null`.
+TryParsers is a tiny library, which can also be embedded as one or two C#
+files, that turns `TryParse` methods into functions that return their result
+entirely in the return value. For example, for an `Int32`, TryParsers's
+version returns a [nullable][nullable] `Int32` or simply `int?` in C#. If
+the parsing succeeds, the return value will be the parsed `Int32` value
+otherwise it will be `null`.
 
 You can now write error-tolerant code using LINQ like this:
 
@@ -21,7 +32,14 @@ Console.WriteLine(string.Join(",", nums);
 // Output: 2,3,4,6,7,9
 ```
 
-The .NET Framework still has many types that support parsing or initializing from a string representation of a value but which throw exceptions on failure. TryParsers also comes with a generic method called `Make` for such cases that enables building a `TryParse`-like method on top of existing parsers. For example, the [`MailAddress`][MailAddress] [constructor][MailAddress.ctor] throws [`FormatException`][FormatException] when it fails to parse or recognize a valid e-mail address. Using `Make`, however, you can create a `TryParse`-like method on top of `MailAddress`:
+The .NET Framework still has many types that support parsing or initializing
+from a string representation of a value but which throw exceptions on failure.
+TryParsers also comes with a generic method called `Make` for such cases that
+enables building a `TryParse`-like method on top of existing parsers. For
+example, the [`MailAddress`][MailAddress] [constructor][MailAddress.ctor]
+throws [`FormatException`][FormatException] when it fails to parse or
+recognize a valid e-mail address. Using `Make`, however, you can create a
+`TryParse`-like method on top of `MailAddress`:
 
 ```c#
 var addresses =
@@ -43,7 +61,10 @@ Console.WriteLine(string.Join("; ", addresses));
 // john.doe@example.com; john.doe@localhost
 ```
 
-Note that `Make` above will still throw if an exception other than `FormatException` is thrown by the `MailAddress` constructor. Below is a more advanced of example using `Make` to distinguish between `FormatException` and `OverflowException` (throwing in all other cases):
+Note that `Make` above will still throw if an exception other than
+`FormatException` is thrown by the `MailAddress` constructor. Below is a more
+advanced of example using `Make` to distinguish between `FormatException` and
+`OverflowException` (throwing in all other cases):
 
 ```c#
 var results =
