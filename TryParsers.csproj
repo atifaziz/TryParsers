@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/atifaziz/TryParsers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/atifaziz/TryParsers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>parser parsing linq functional</PackageTags>
+    <PackageTags>parser;parsing;linq;functional</PackageTags>
     <PackageLicenseUrl>http://www.opensource.org/licenses/bsd-license.php</PackageLicenseUrl>
     <PackageOutputPath>dist</PackageOutputPath>
     <IncludeSymbols>true</IncludeSymbols>
