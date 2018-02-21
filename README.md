@@ -1,11 +1,11 @@
 TryParsers is available as two NuGet packages:
 
- - [TryParsers][1]: library
- - ~~[TryParsers.Embedded][2]: C# source for private embedding in a project~~ (deprecated)
+ - [TryParsers][pkg]: library
+ - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in a project~~ (deprecated)
 
-The .NET Framework has a number of static `TryParse` methods on types like [`Int32`][3], [`Int64`][4], [`Double`][5], [`DateTime`][6] and so on, that make their use in expressions and functional code like LINQ queries impossible. That's because they return their result in two parts: one in the return value (a Boolean indicating whether the parse was successful) and another in an output parameter (the parsed value).
+The .NET Framework has a number of static `TryParse` methods on types like [`Int32`][int], [`Int64`][long], [`Double`][double], [`DateTime`][dt] and so on, that make their use in expressions and functional code like LINQ queries impossible. That's because they return their result in two parts: one in the return value (a Boolean indicating whether the parse was successful) and another in an output parameter (the parsed value).
 
-TryParsers is a tiny library, which can also be embedded as one or two C# files, that turns `TryParse` methods into functions that return their result entirely in the return value. For example, for an `Int32`, TryParsers's version returns a [nullable][7] `Int32` or simply `int?` in C#. If the parsing succeeds, the return value will be the parsed `Int32` value otherwise it will be `null`.
+TryParsers is a tiny library, which can also be embedded as one or two C# files, that turns `TryParse` methods into functions that return their result entirely in the return value. For example, for an `Int32`, TryParsers's version returns a [nullable][nullable] `Int32` or simply `int?` in C#. If the parsing succeeds, the return value will be the parsed `Int32` value otherwise it will be `null`.
 
 You can now write error-tolerant code using LINQ like this:
 
@@ -21,7 +21,7 @@ Console.WriteLine(string.Join(",", nums);
 // Output: 2,3,4,6,7,9
 ```
 
-The .NET Framework still has many types that support parsing or initializing from a string representation of a value but which throw exceptions on failure. TryParsers also comes with a generic method called `Make` for such cases that enables building a `TryParse`-like method on top of existing parsers. For example, the [`MailAddress`][8] [constructor][9] throws [`FormatException`][10] when it fails to parse or recognize a valid e-mail address. Using `Make`, however, you can create a `TryParse`-like method on top of `MailAddress`:
+The .NET Framework still has many types that support parsing or initializing from a string representation of a value but which throw exceptions on failure. TryParsers also comes with a generic method called `Make` for such cases that enables building a `TryParse`-like method on top of existing parsers. For example, the [`MailAddress`][MailAddress] [constructor][MailAddress.ctor] throws [`FormatException`][FormatException] when it fails to parse or recognize a valid e-mail address. Using `Make`, however, you can create a `TryParse`-like method on top of `MailAddress`:
 
 ```c#
 var addresses =
@@ -69,17 +69,17 @@ Console.WriteLine(string.Join(",", results));
 
 Download and install TryParsers from NuGet:
 
- - [TryParsers][1]: library
- - ~~[TryParsers.Embedded][2]: C# source for private embedding in a project~~ (deprecated)
+ - [TryParsers][pkg]: library
+ - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in a project~~ (deprecated)
 
 
-  [1]: https://nuget.org/packages/TryParsers
-  [2]: https://nuget.org/packages/TryParsers.Embedded
-  [3]: http://msdn.microsoft.com/en-us/library/system.int32.tryparse.aspx
-  [4]: http://msdn.microsoft.com/en-us/library/system.int64.tryparse.aspx
-  [5]: http://msdn.microsoft.com/en-us/library/system.double.tryparse.aspx
-  [6]: http://msdn.microsoft.com/en-us/library/system.datetime.tryparse.aspx
-  [7]: http://msdn.microsoft.com/en-us/library/system.nullable.aspx
-  [8]: http://msdn.microsoft.com/en-us/library/system.net.mail.mailaddress.aspx
-  [9]: http://msdn.microsoft.com/en-us/library/591bk9e8.aspx
-  [10]: http://msdn.microsoft.com/en-us/library/system.formatexception.aspx
+[pkg]: https://nuget.org/packages/TryParsers
+[srcpkg]: https://nuget.org/packages/TryParsers.Embedded
+[int]: http://msdn.microsoft.com/en-us/library/system.int32.tryparse.aspx
+[long]: http://msdn.microsoft.com/en-us/library/system.int64.tryparse.aspx
+[double]: http://msdn.microsoft.com/en-us/library/system.double.tryparse.aspx
+[dt]: http://msdn.microsoft.com/en-us/library/system.datetime.tryparse.aspx
+[nullable]: http://msdn.microsoft.com/en-us/library/system.nullable.aspx
+[MailAddress]: http://msdn.microsoft.com/en-us/library/system.net.mail.mailaddress.aspx
+[MailAddress.ctor]: http://msdn.microsoft.com/en-us/library/591bk9e8.aspx
+[FormatException]: http://msdn.microsoft.com/en-us/library/system.formatexception.aspx
