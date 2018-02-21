@@ -1,4 +1,10 @@
-TryParsers is available as two NuGet packages:
+## TryParsers
+
+TryParse is a .NET Standard library that provides methods for _attempting
+parsing_ of basic values without the need for output parameters, as most
+[`TryParse`][dotnet-try-parse] method do in .NET.
+
+It is available as two NuGet packages:
 
  - [TryParsers][pkg]: library
  - ~~[TryParsers.Embedded][srcpkg]: C# source for private embedding in
@@ -104,3 +110,4 @@ Download and install TryParsers from NuGet:
 [MailAddress]: http://msdn.microsoft.com/en-us/library/system.net.mail.mailaddress.aspx
 [MailAddress.ctor]: http://msdn.microsoft.com/en-us/library/591bk9e8.aspx
 [FormatException]: http://msdn.microsoft.com/en-us/library/system.formatexception.aspx
+[dotnet-try-parse]: https://source.dot.net/#q=TryParse
