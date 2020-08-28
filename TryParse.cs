@@ -184,10 +184,10 @@ namespace TryParsers
 
         // Enum
 
-        public static T? Enum<T>(string value) where T : struct =>
+        public static T? Enum<T>(string value) where T : struct, Enum =>
             Enum<T>(value, false);
 
-        public static T? Enum<T>(string value, bool ignoreCase) where T : struct =>
+        public static T? Enum<T>(string value, bool ignoreCase) where T : struct, Enum =>
             EnumImpl<T>.TryParse(value, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
 
         static class StringSeparatorStock
@@ -195,7 +195,7 @@ namespace TryParsers
             public static readonly char[] Comma = { ',' };
         }
 
-        static class EnumImpl<T> where T : struct
+        static class EnumImpl<T> where T : struct, Enum
         {                                                        // ReSharper disable StaticFieldInGenericType
             static KeyValuePair<string, ulong>[] _cachedMembers; // ReSharper restore StaticFieldInGenericType
                                                                  // ReSharper disable ReturnTypeCanBeEnumerable.Local
